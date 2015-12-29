@@ -48,7 +48,7 @@ module BinDeps
         if downloadcmd === nothing
             for download_engine in @windows? (:powershell, :curl, :wget, :fetch) : (:curl, :wget, :fetch)
                 if download_engine == :powershell
-                    checkcmd = `$download_engine -help`
+                    checkcmd = `$download_engine 1+1 *>$null`
                 else
                     checkcmd = `$download_engine --help`
                 end
